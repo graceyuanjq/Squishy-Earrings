@@ -1,0 +1,22 @@
+/*
+  Based on Arduino AnalogReadSerial example
+  http://www.arduino.cc/en/Tutorial/AnalogReadSerial
+*/
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(12, OUTPUT);
+}
+
+void loop() {
+  int sensorValue1 = analogRead(A0);
+  int sensorValue2 = analogRead(A1);
+  Serial.println(sensorValue1);
+  Serial.println(sensorValue2);
+  if (sensorValue1>1000 || sensorValue2>1000){
+    digitalWrite(12, HIGH);
+  } else {
+    digitalWrite(12, LOW);
+  }
+  delay(100);    
+}
